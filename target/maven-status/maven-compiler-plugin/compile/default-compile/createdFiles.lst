@@ -1,0 +1,7 @@
+Main.class
+repository\ContestRepository.class
+model\ContestList.class
+ContestBot.class
+contestlist\ContestsParse.class
+notification\PingTask.class
+model\Contest.class
