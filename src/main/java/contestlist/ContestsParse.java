@@ -41,9 +41,8 @@ public class ContestsParse {
 
     public static Set<Contest> get(ContestList contestName) {
         ContestRepository repository = ContestRepository.getInstance();
-        LocalDateTime current_time = LocalDateTime.now();
         boolean isEmpty = repository.isEmpty(contestName);
-        if (start == null || isEmpty || start.plusMinutes(5).isAfter(current_time)) {
+        if (isEmpty) {
             addContest(repository, contestName);
         }
         return repository.get(contestName);

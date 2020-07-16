@@ -54,5 +54,9 @@ public class ContestRepository {
         contestMap.remove(contest);
     }
 
+    public void removeAll(){
+        contestMap.clear();
+    }
+
 
 }

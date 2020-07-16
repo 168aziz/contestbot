@@ -1,5 +1,7 @@
 package notification;
 
+import repository.ContestRepository;
+
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -14,7 +16,7 @@ public class PingTask extends TimerTask {
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             httpURLConnection.connect();
             httpURLConnection.disconnect();
-
+            ContestRepository.getInstance().removeAll();
         } catch (IOException e) {
             e.printStackTrace();
         }
