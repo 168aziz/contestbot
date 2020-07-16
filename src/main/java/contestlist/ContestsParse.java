@@ -16,6 +16,8 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -56,7 +58,7 @@ public class ContestsParse {
             if (contestName == ALL) {
                 new JSONArray(str).forEach(o -> {
                     Contest contest = getContest(valueOf(o), contestName);
-                    if (contest.isIn_24_hours())
+                    if (contest.isIn_24_hours() && start.isBefore(contest.getEnd().toLocalDateTime()))
                         repository.add(contest);
                 });
             } else {
